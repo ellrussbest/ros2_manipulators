@@ -5,7 +5,7 @@ A collection of ROS2-based projects for robotic manipulators, including hardware
 1. [Click For Ros2 installation manual: Binary Packages](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
 2. [Click for Ros2 installation manual: Building from Source](https://docs.ros.org/en/humble/Installation/Alternatives/Ubuntu-Development-Setup.html)
 
-# Setup ROS2 IDE(VS Code)
+# Setup ROS2 IDE (*VS Code*)
 
 1. VS Code extensions:
 - C++ extension pack (*Microsoft*)

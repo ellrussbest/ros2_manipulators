@@ -1,5 +1,5 @@
 <figure style="text-align:center">
-    <img src="assets/images/ros-architecture.png" width="500" height="426" alt="ros 2 architecture"/>
+    <img src="assets/images/ros-architecture.png" width="811" height="692" alt="ros 2 architecture"/>
     <figcaption>Image Source <a href="https://automaticaddison.com/ros-2-architecture-overview/" target="_blank">Automatic Addison</a></figcaption>
 </figure>
 
@@ -110,15 +110,51 @@ A ROS 2 package may include:
 - **Underlay**: The folder where all the default ROS 2 applications and packages are installed, typically found at `/opt/ros/<ros-distro>/`.
 - **Overlay**: A custom folder for your personal ROS 2 packages and applications. The overlay folder has access to both the default ROS 2 packages and your custom packages. In case of name collisions, the version in the overlay folder takes priority.
 
+## ROS 2 Workspace Structure
+
+In ROS 2, your workspace is organized into several key directories that facilitate development, building, installation, and logging of packages. Here's a breakdown of each folder's purpose:
+
 ```
 .
-├── workspace
-│   ├── package
-│       ├── node 1
-│       ├── node 2
-│       ├── launch files
-│       └── configuration files
+└── workspace
+    ├── src
+    │    ├── node 1
+    │    ├── node 2
+    │    ├── launch files
+    │    └── configuration files  
+    ├── build
+    │   
+    ├── install
+    │   
+    └── log
 ```
+
+### 1. `src/` (Source Code Directory)
+The `src` folder is where you store all your source code, scripts, and custom ROS 2 packages. It's the development area of your workspace, where you'll write and modify:
+- **Nodes**: The individual programs or processes that execute specific tasks.
+- **Launch Files**: Files that define how your ROS 2 nodes should be launched, often in combination with configurations (e.g., robot initialization, parameter setting).
+- **Configuration Files**: Files containing configuration settings that define how nodes or packages behave, such as YAML files with parameters for robot settings or sensor calibration.
+
+This is where you'll add new packages, write the logic for your nodes, and organize your code into a modular structure.
+
+### 2. `build/` (Build Directory)
+The `build` folder is where ROS 2 compiles your source code into executable files. When you run the `colcon build` command, ROS 2 will generate a subfolder for each package found in the `src` folder within `build/`. These subfolders contain intermediate build files, such as object files and dependency information, necessary for creating the final executables. 
+- This directory is **generated automatically** during the build process and should not be modified directly.
+- The build process compiles each package and resolves dependencies, preparing everything for installation.
+
+### 3. `install/` (Installation Directory)
+Once the build process is complete, the `install` folder is where all the packages and their executables are installed and ready for execution. 
+- Each package from the `src` folder is installed here, along with its compiled binaries, libraries, and any resources like configuration files.
+- The `install/` directory contains the **final executables** (e.g., `.exe` files for nodes) and all other resources required to run your ROS 2 application.
+- This folder is the runtime environment, where everything is ready to be executed after building.
+
+### 4. `log/` (Log Directory)
+The `log` folder is where ROS 2 stores **log files** generated during runtime. This includes:
+- Output logs from the execution of your nodes, showing details of node initialization, execution, and shutdown.
+- Error logs that can be used for debugging if something goes wrong during runtime.
+- ROS 2 uses **rosout** to capture logs, so you can monitor or analyze any issues or performance data during the operation of your robot.
+
+Logs are helpful for diagnosing issues, tracking system performance, and reviewing past executions of your ROS 2 system.
 
 ### Summary
 In summary, ROS 2 combines DDS middleware, a flexible client library, and robust message-passing protocols to form a highly scalable and adaptable framework for developing robotic applications. Its key features—such as hardware abstraction, low-level device control, messaging between nodes, and modular package management—make it highly versatile and comparable to an operating system for robots. The ability to choose from multiple DDS implementations and leverage multiple programming languages further enhances its utility and accessibility for developers. Through this architecture, ROS 2 enables the seamless integration of various robotic systems, streamlining the development of complex robotic functionalities.

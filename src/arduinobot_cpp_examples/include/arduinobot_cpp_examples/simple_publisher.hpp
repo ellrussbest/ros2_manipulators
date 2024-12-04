@@ -13,9 +13,9 @@ namespace my {
     public:
         simple_publisher(std::string&& node_name, std::string&& topic_name,
                         const unsigned int& buffer_size)
-            : Node(std::move(node_name)), counter(0) 
+            : Node(node_name), counter(0) 
         {
-            publisher = create_publisher<std_msgs::msg::String>(std::move(topic_name), buffer_size);
+            publisher = create_publisher<std_msgs::msg::String>(topic_name, buffer_size);
             timer = create_wall_timer(1s, std::bind(&simple_publisher::callback, this));
             RCLCPP_INFO(get_logger(), "Publishing at 1 Hz");
         }

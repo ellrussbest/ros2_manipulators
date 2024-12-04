@@ -2,6 +2,7 @@
 #define SIMPLE_PUBLISHER_HPP_
 
 #include <chrono>
+#include <functional>
 #include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/string.hpp>
 

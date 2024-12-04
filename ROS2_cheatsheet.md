@@ -19,6 +19,8 @@
 
 8. `ros2 topic hz <topic-name>` - analyzes the messages printed on the topic and calculates the frequency at which they are published.
 
+9. `ros2 topic pub <topic-name> <msg-type> <msg-content>` - publishes a message to a topic e.g. `ros2 topic pub /chatter std_msgs/msg/String "data: 'Hello ROS 2'"`
+
 # `package.xml`
 In ROS 2, the `package.xml` file contains several tags to specify different types of dependencies for a package. Here’s a list of the common `_depend` tags along with their usage:
 

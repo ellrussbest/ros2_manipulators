@@ -21,6 +21,8 @@
 
 9. `ros2 topic pub <topic-name> <msg-type> <msg-content>` - publishes a message to a topic e.g. `ros2 topic pub /chatter std_msgs/msg/String "data: 'Hello ROS 2'"`
 
+10. `ros2 launch urdf_tutorial display.launch.py model:=<path-to-urdf-xml-file>` - launches a ROS2 visualization tool to display a robot model defined by the specified URDF file.
+
 # `package.xml`
 In ROS 2, the `package.xml` file contains several tags to specify different types of dependencies for a package. Here’s a list of the common `_depend` tags along with their usage:
 

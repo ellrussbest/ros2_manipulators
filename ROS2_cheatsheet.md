@@ -23,6 +23,16 @@
 
 10. `ros2 launch urdf_tutorial display.launch.py model:=<path-to-urdf-xml-file>` - launches a ROS2 visualization tool to display a robot model defined by the specified URDF file.
 
+11. `ros2 param list` - lists all the nodes that require/supports parameters.
+
+12. `ros2 param list <node-name>` - list all the parameters of a particular node.
+
+13. `ros2 param get <node-name> <param-name>` - list the current/default values and the value types of a specific parameter e.g. `ros2 param get /simple_parameter simple_int_param`
+
+14. `ros run <package-name> <node-name> --ros-args -p simple_int_param:=30` - assigns a new param value to the parameters through launching the node in the cli.
+
+15. `ros2 param set <node-name> <param-name> <value>` - changes parameters on a node at runtime e.g. `ros2 param set /simple_parameter simple_string_param "hello world"`
+
 # `package.xml`
 In ROS 2, the `package.xml` file contains several tags to specify different types of dependencies for a package. Here’s a list of the common `_depend` tags along with their usage:
 

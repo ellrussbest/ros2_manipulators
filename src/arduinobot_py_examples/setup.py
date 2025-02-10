@@ -23,6 +23,7 @@ setup(
             #'name_of_your_executable = package.module:function'
             'simple_publisher = arduinobot_py_examples.simple_publisher:main',
             'simple_subscriber = arduinobot_py_examples.simple_subscriber:main',
+            'simple_parameter = arduinobot_py_examples.simple_parameter:main',
         ],
     },
 )

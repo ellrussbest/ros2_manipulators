@@ -33,8 +33,14 @@
 
 15. `ros2 param set <node-name> <param-name> <value>` - changes parameters on a node at runtime e.g. `ros2 param set /simple_parameter simple_string_param "hello world"`
 
+16. `ros2 run robot_state_publisher robot_state_publisher --ros-args -p robot_description:="$(xacro <path-to-xacro>)"` - Publishes the robot description by parsing a .xacro file.
+
+17. `ros2 run joint_state_publisher_gui joint_state_publisher_gui` - Launches the GUI, publishes the joint states topic, and updates the robot joint positions.
+
+18. `ros2 run rviz2 rviz2` - Subscribes to the robot description and joint state to visualize the robot model in 3D.
+
 # `package.xml`
-In ROS 2, the `package.xml` file contains several tags to specify different types of dependencies for a package. Here’s a list of the common `_depend` tags along with their usage:
+In ROS 2, the `package.xml` file contains several tags to specify different types of dependencies for a package. Here's a list of the common `_depend` tags along with their usage:
 
 ## Dependency Tags in `package.xml`
 

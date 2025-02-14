@@ -6,13 +6,11 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
-from ament_index_python.packages import get_package_share_directory
-from pathlib import Path
 
 def generate_launch_description():
     ld = LaunchDescription()
     pkg_ros_gz_sim = FindPackageShare('ros_gz_sim')
-    arduinobot_description_path = get_package_share_directory('arduinobot_description')
+    arduinobot_description_path = FindPackageShare('arduinobot_description')
     gz_launch_path = PathJoinSubstitution([pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py'])
     default_model_path = PathJoinSubstitution([arduinobot_description_path, 'urdf', 'gazebo.arduinobot.urdf.xacro'])
 
@@ -24,7 +22,7 @@ def generate_launch_description():
 
     ld.add_action(SetEnvironmentVariable(
         name='GZ_SIM_RESOURCE_PATH',
-        value=[str(Path(arduinobot_description_path).parent.resolve())]
+        value=[PathJoinSubstitution([arduinobot_description_path, '..'])]
     ))
     
     robot_description = ParameterValue(Command(['xacro ', LaunchConfiguration('model')]))
@@ -49,7 +47,7 @@ def generate_launch_description():
         package='ros_gz_sim',
         executable='create',
         output='screen',
-        arguments=['-topic', 'robot_description', '-name', 'arduinobot']
+        arguments=['-topic', 'robot_description', '-name', 'arduinobot'],
     ))
 
     ld.add_action(Node(

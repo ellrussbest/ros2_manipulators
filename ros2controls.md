@@ -71,6 +71,14 @@ These existing controllers can be loaded into the controller manager to implemen
 
 ---
 
+### Control Types
+
+The ROS 2 library offers various interfaces and configurations to adapt to the different needs of each robot. In particular this library offers three different interfaces that correspond to three different control logics:
+
+1. Position control
+2. Velocity control
+3. Effort control
+
 ### Summary
 
 To summarize, ROS 2's **ros2control** framework offers a structured approach to managing robotic hardware through the use of hardware resources, resource managers, and controller managers. It simplifies the process of sending commands to actuators and receiving feedback from sensors, all while ensuring that robot movements remain as accurate as possible. By leveraging both custom and predefined controllers, users can control complex robotic systems and achieve precise movement with minimal effort.
